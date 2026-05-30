@@ -14,6 +14,21 @@ export async function createShortUrlService(
   let shortCode: string;
   let exists = true;
 
+  const existingUrl = await prisma.url.findFirst({
+    where: {
+      originalUrl,
+    },
+  });
+
+  if (existingUrl) {
+    return {
+      id: existingUrl.id,
+      originalUrl: existingUrl.originalUrl,
+      shortCode: existingUrl.shortCode,
+      shortUrl: `localhost:8000/${existingUrl.shortCode}`,
+    };
+  }
+
   while (exists) {
     shortCode = generateShortCode(6);
 
