@@ -40,7 +40,7 @@ export const getAnalytics = async (
     }
     const result = await getShortCodeAnalyticsService(shortCode);
     if (!result) {
-      return res.status(404).json({ message: "Short code does not exist" });
+      return res.status(404).json({ message: "Short URL not found" });
     }
     return res.status(201).json(result);
   } catch (error) {
