@@ -63,7 +63,7 @@ Creates a shortened URL.
 ### Endpoint
 
 ```http
-POST /api/url
+POST /api/url/shorten
 ```
 
 ### Request Body
