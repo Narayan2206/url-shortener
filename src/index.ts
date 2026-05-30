@@ -1,18 +1,13 @@
 import express from "express";
 import { config } from "dotenv";
+import urlRoutes from "./routes/url.routes";
 
 config();
 const PORT = 8000;
 const app = express();
-
-app.get("/", (req, res) => {
-    res.send("HELLO FROM EXPRESS + TS!!!!!")
-})
-
-app.get("/hi", (req, res) => {
-    res.send("HIII")
-})
+app.use(express.json());
+app.use("/api/url", urlRoutes);
 
 app.listen(PORT, () => {
-    console.log(`Now listening on port ${PORT}`)
-})
+  console.log(`Now listening on port ${PORT}`);
+});
