@@ -32,7 +32,7 @@ export async function createShortUrlService(
       id: existingUrl.id,
       originalUrl: existingUrl.originalUrl,
       shortCode: existingUrl.shortCode,
-      shortUrl: `localhost:8000/${existingUrl.shortCode}`,
+      shortUrl: `${process.env.BASE_URL}/${existingUrl.shortCode}`,
     };
   }
 
@@ -55,8 +55,7 @@ export async function createShortUrlService(
     id: url.id,
     originalUrl: url.originalUrl,
     shortCode: url.shortCode,
-    // shortUrl: `${process.env.BASE_URL}/${url.shortCode}`,
-    shortUrl: `localhost:8000/${url.shortCode}`,
+    shortUrl: `${process.env.BASE_URL}/${url.shortCode}`,
   };
 }
 

@@ -4,7 +4,7 @@ import urlRoutes from "./routes/url.routes";
 import redirectRoutes from "./routes/redirect.routes";
 
 config();
-const PORT = 8000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(express.json());
 app.use("/api/url", urlRoutes);
